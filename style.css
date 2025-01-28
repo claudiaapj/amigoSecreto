@@ -96,7 +96,7 @@ body {
     justify-content: center;
     width: 100%;
     color: red;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 122px;
 }
 

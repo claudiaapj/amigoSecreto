@@ -1,6 +1,6 @@
 limpaCampo();
 let listaAmigosSortear = [];
-let mensagem = document.getElementById("listaAmigos");
+
 
 function adicionarAmigo() {
     // Obter o valor do input
@@ -27,14 +27,15 @@ function adicionarAmigo() {
 function sortearAmigo(){
     
     if (listaAmigosSortear.length === 0) {
-        document.getElementById("resultado").textContent = "Adicione primeiro os amigos para sortear!";
+        //document.getElementById("resultado").textContent = "Adicione primeiro os amigos para sortear!";
+        exibirErroTelaTempo("Adicione primeiro os amigos para então sortear!", 2000)
+
         return;
       }
     let sorteioIndice = Math.floor(Math.random()* listaAmigosSortear.length + 1);
 
     let amigoSorteado = listaAmigosSortear[sorteioIndice];
-      console.log(listaAmigosSortear)
-      console.log(amigoSorteado)
+    
     document.getElementById("resultado").textContent = `Seu amigo secreto é: ${amigoSorteado}`;
   
     }
@@ -47,8 +48,10 @@ function limpaCampo(){
 }
 
 function exibirErroTelaTempo(texto, tempo){
-    
-    mensagem.textContent = "Digita primeiro o nome do amigo para então adicionar!";
+    let mensagem = document.getElementById("listaAmigos");
+    let mensagemSortearVazio = document.getElementById("resultado")
+    mensagem.textContent = texto
+    mensagemSortearVazio = texto
 
     setTimeout(()=> {mensagem.textContent = "";}, tempo);
     limpaCampo()
