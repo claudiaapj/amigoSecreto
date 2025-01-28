@@ -91,6 +91,14 @@ body {
     width: 300px;
     justify-content: center;
 }
+.erro{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: red;
+    position: absolute;
+    bottom: 122px;
+}
 
 /* Estilos de entrada de texto */
 .input-title {
