@@ -1,5 +1,6 @@
 limpaCampo();
 let listaAmigosSortear = [];
+let mensagem = document.getElementById("listaAmigos");
 
 function adicionarAmigo() {
     // Obter o valor do input
@@ -8,10 +9,10 @@ function adicionarAmigo() {
 
     // Verificar se o campo não está vazio
     if (nome === '') {
-        mensagem =document.getElementById("listaAmigos").textContent = "Digita primeiro o nome do amigo para então adicionar!";
-        return mensagem;
+        exibirErroTelaTempo("Digita primeiro o nome do amigo para então adicionar!", 2000)
+        return ;
     }
-    verificaCampoVazio()
+   
     let itemLista = document.createElement('li');
     itemLista.textContent = nome;
 
@@ -32,7 +33,8 @@ function sortearAmigo(){
     let sorteioIndice = Math.floor(Math.random()* listaAmigosSortear.length + 1);
 
     let amigoSorteado = listaAmigosSortear[sorteioIndice];
-
+      console.log(listaAmigosSortear)
+      console.log(amigoSorteado)
     document.getElementById("resultado").textContent = `Seu amigo secreto é: ${amigoSorteado}`;
   
     }
@@ -44,9 +46,10 @@ function limpaCampo(){
     campoInput.focus();
 }
 
-function verificaCampoVazio(){
-    if(mensagem != ""){
-        mensagem =document.getElementById("listaAmigos").textContent = ""
-    }
-    return
+function exibirErroTelaTempo(texto, tempo){
+    
+    mensagem.textContent = "Digita primeiro o nome do amigo para então adicionar!";
+
+    setTimeout(()=> {mensagem.textContent = "";}, tempo);
+    limpaCampo()
 }
