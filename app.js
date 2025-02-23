@@ -9,7 +9,7 @@ function adicionarAmigo() {
 
     // Verificar se o campo não está vazio
     if (nome === '') {
-        exibirErroTelaTempo("Digita primeiro o nome do amigo para então adicionar!", 2000)
+        exibirErroTelaTempo("Digita primeiro o nome do amigo para então adicionar!", 4000)
         return ;
     }
    
@@ -28,13 +28,14 @@ function sortearAmigo(){
     
     if (listaAmigosSortear.length === 0) {
         //document.getElementById("resultado").textContent = "Adicione primeiro os amigos para sortear!";
-        exibirErroTelaTempo("Adicione primeiro os amigos para então sortear!", 2000)
+        exibirErroTelaTempo("Adicione primeiro os amigos para então sortear!", 4000)
 
         return;
       }
     let sorteioIndice = Math.floor(Math.random()* listaAmigosSortear.length + 1);
 
     let amigoSorteado = listaAmigosSortear[sorteioIndice];
+    document.getElementById('listaAmigos').style.display = 'none';
     
     document.getElementById("resultado").textContent = `Seu amigo secreto é: ${amigoSorteado}`;
   
